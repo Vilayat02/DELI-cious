@@ -28,7 +28,7 @@ public class Meat extends Item {
             case 1 -> "Steak";
             case 2 -> "Ham";
             case 3 -> "Salami";
-            case 4 -> "Roast Beed";
+            case 4 -> "Roast Beef";
             case 5 -> "Chicken";
             case 6 -> "Bacon";
             default -> "None";

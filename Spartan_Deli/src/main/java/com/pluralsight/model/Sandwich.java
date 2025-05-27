@@ -65,4 +65,46 @@ public class Sandwich {
         return total;
     }
 
+    public String getDescription() {
+        String desc = "Sandwich: " + size + "\" on " + bread.getName();
+        if (toasted) {
+            desc += " (toasted)";
+        }
+        desc += "\nIngredients:\n";
+
+        if (!meats.isEmpty()) {
+            String[] meatNames = meats.stream()
+                    .map(m -> m.getName() + (m.isExtra() ? " (extra)" : ""))
+                    .toArray(String[]::new);
+            desc += "  Meats: " + String.join(", ", meatNames) + "\n";
+        }
+        if (!cheeses.isEmpty()) {
+            String[] cheeseNames = cheeses.stream()
+                    .map(c -> c.getName() + (c.isExtra() ? " (extra)" : ""))
+                    .toArray(String[]::new);
+            desc += "  Cheeses: " + String.join(", ", cheeseNames) + "\n";
+        }
+        if (!toppings.isEmpty()) {
+            String[] toppingNames = toppings.stream()
+                    .map(Topping::getName)
+                    .toArray(String[]::new);
+            desc += "  Toppings: " + String.join(", ", toppingNames) + "\n";
+        }
+        if (!sauces.isEmpty()) {
+            String[] sauceNames = sauces.stream()
+                    .map(Sauce::getName)
+                    .toArray(String[]::new);
+            desc += "  Sauces: " + String.join(", ", sauceNames) + "\n";
+        }
+
+        desc += String.format("Total Price: $%.2f", getTotalPrice());
+        return desc;
+    }
+
+    @Override
+    public String toString() {
+        return getDescription();
+    }
+
+
 }
