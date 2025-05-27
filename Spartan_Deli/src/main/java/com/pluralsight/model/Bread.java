@@ -22,4 +22,14 @@ public class Bread extends Item{
     public double getExtraPrice(int size) {
         return 0;
     }
+
+    public String getName() {
+        return switch (getType()) {
+            case 1 -> "White";
+            case 2 -> "Wheat";
+            case 3 -> "Rye";
+            case 4 -> "Wrap";
+            default -> "White";
+        };
+    }
 }

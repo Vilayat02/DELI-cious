@@ -23,26 +23,19 @@ public class Meat extends Item {
         return String.format("Meat(type = %d, extra = %b)", getType(), isExtra());
     }
 
-    /* @Override
-    public double getPrice(int choose) {
-        return (sandwich.getSize() == 1) ? 1: (sandwich.getSize() == 2) ? 2: (sandwich.getSize() == 3) ? 3: 0;
+    public String getName() {
+        return switch (getType()) {
+            case 1 -> "Steak";
+            case 2 -> "Ham";
+            case 3 -> "Salami";
+            case 4 -> "Roast Beed";
+            case 5 -> "Chicken";
+            case 6 -> "Bacon";
+            default -> "None";
+        };
     }
 
-@Override
-public double getPriceWithExtra(int choose, boolean extra) {
-        double price = 0;
-        if (extra) {
-            if (sandwich.getSize() == 1) {
-                price = getPrice(choose) + 0.50;
-            } else if (sandwich.getSize() == 2) {
-                price = getPrice(choose) + 1;
-            } else if (sandwich.getSize() == 3) {
-                price = getPrice(choose) + 1.50;
-            } else System.out.println("Wrong size!");
-        }
 
-    return price;
-}*/
 
 
 }

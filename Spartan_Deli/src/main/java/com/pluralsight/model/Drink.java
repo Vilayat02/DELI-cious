@@ -22,4 +22,13 @@ public class Drink  extends Item{
     public String toString() {
         return String.format("Drink(size=%d, price=%.2f)", getType(), getPrice(getType()));
     }
+
+    public String getName() {
+        return switch (getType()) {
+            case 1 -> "Small";
+            case 2 -> "Medium";
+            case 3 -> "Large";
+            default -> "None";
+        };
+    }
 }

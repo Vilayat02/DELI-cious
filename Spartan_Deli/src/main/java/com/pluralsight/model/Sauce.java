@@ -20,6 +20,18 @@ public class Sauce extends Item{
 
     @Override
     public String toString() {
-        return String.format("Topping(type=%d)", getType());
+        return String.format("Sauce(type=%d)", getType());
+    }
+
+    public String getName() {
+        return switch (getType()) {
+            case 1 -> "Mayo";
+            case 2 -> "Mustard";
+            case 3 -> "Ketchup";
+            case 4 -> "Ranch";
+            case 5 -> "Thousand Islands";
+            case 6 -> "Vinaigrette";
+            default -> "None";
+        };
     }
 }
