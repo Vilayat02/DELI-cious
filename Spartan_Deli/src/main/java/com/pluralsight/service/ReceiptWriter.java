@@ -18,19 +18,18 @@ public class ReceiptWriter {
         String time = LocalDateTime.now().format(
                 DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
         String filename = "src/main/resources/ " + time + ".txt";
-
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             writer.write("=== RECEIPT === \n");
                     writer.write("Time: " + time + "\n");
 
             for (Sandwich s : order.getSandwiches()) {
-                writer.write(s.toString() + " ");
+                writer.write(s.toString() + "\n");
             }
             for (Drink d : order.getDrinks()) {
-                writer.write(d.toString() + " ");
+                writer.write(d.toString() + "\n");
             }
             for (Chips c : order.getChipsList()) {
-                writer.write(c.getName() + " — $" + String.format("%.2f", c.getPrice(c.getType())) + " ");
+                writer.write(c.getName() + " — $" + String.format("%.2f", c.getPrice(c.getType())) + "\n");
             }
 
             writer.write("TOTAL: $" + String.format("%.2f", order.getTotalPrice()) + " ");

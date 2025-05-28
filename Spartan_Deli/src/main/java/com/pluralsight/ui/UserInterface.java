@@ -10,40 +10,60 @@ public class UserInterface {
     Drink drink;
     Chips chips;
     Scanner sc = new Scanner(System.in);
-
+    boolean exit = false;
     public void display() {
-
+        while (!exit) {
         System.out.println("1 - New Order  0 - Exit");
         int choice = sc.nextInt();
-        while (true) {
             if (choice == 1) {
                 Order order = new Order();
                 boolean run = true;
                 while (run) {
                     System.out.println("---- Order ----\n1-Add Sandwich\n2-Add Drink\n3-Add Chips\n4-Checkout\n0-Cancel Order");
                     int pick = sc.nextInt();
-                    if (pick == 1) {
+                    switch (pick){
+                        case 1 -> {
                         Sandwich sandwich = processGetSandwich();
                         order.addSandwich(sandwich);
+                        }
 
-                    } else if (pick == 2) {
+                     case 2 -> {
                         Drink drink = processGetDrink();
                         order.addDrink(drink);
-                    } else if (pick == 3) {
+                    }
+                    case 3 -> {
                         Chips chips = processGetChips();
                         order.addChips(chips);
-                    } else if (pick == 4) {
+                    }
+                    case 4 -> {
                         System.out.println("Final Order:\n" + order);
-                        ReceiptWriter.saveOrder(order);
-                        run = false;
-                        break;
-                    } else if (pick == 0) {
+                        System.out.print("1-Confirm  2-Cancel :");
+                        int confirmOfCancel = sc.nextInt(); sc.nextLine();
+                        switch (confirmOfCancel){
+                            case 1 -> {
+                                ReceiptWriter.saveOrder(order);
+                                run = false;
+                                exit = true;
+                                System.out.println("Successfully Checked out!");
+                            }
+                            case 2 -> {
+                                System.out.println("Order was cancelled.");
+                                run = false;
+                                exit = true;
+                            }
+                            default -> {
+                                ReceiptWriter.saveOrder(order);
+                                run = false;
+                                exit = true;
+                            }
+                        }
+                    }
+                    case 0 -> {
                         System.out.println("Order canceled");
                         run = false;
-                        break;
+                        exit = true;
                     }
-                    else {
-                        System.out.println("Invalid choice, try again");
+                    default -> System.out.println("Invalid choice, try again");
                     }
                 }
             } else if (choice == 0) {

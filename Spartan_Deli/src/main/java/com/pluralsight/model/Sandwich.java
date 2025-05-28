@@ -66,12 +66,11 @@ public class Sandwich {
     }
 
     public String getDescription() {
-        String desc = "Sandwich: " + size + "\" on " + bread.getName();
+        String desc = "---------------------\nSandwich: " + size + "\" on " + bread.getName();
         if (toasted) {
             desc += " (toasted)";
         }
         desc += "\nIngredients:\n";
-
         if (!meats.isEmpty()) {
             String[] meatNames = meats.stream()
                     .map(m -> m.getName() + (m.isExtra() ? " (extra)" : ""))
@@ -97,7 +96,7 @@ public class Sandwich {
             desc += "  Sauces: " + String.join(", ", sauceNames) + "\n";
         }
 
-        desc += String.format("Total Price: $%.2f", getTotalPrice());
+        desc += String.format("Sandwich Price: $%.2f", getTotalPrice());
         return desc;
     }
 
@@ -105,6 +104,5 @@ public class Sandwich {
     public String toString() {
         return getDescription();
     }
-
 
 }

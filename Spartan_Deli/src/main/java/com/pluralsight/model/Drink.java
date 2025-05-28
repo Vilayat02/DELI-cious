@@ -1,6 +1,7 @@
 package com.pluralsight.model;
 
 import com.pluralsight.service.PricingService;
+import com.pluralsight.util.SelectionHelper;
 
 public class Drink  extends Item{
 
@@ -20,7 +21,7 @@ public class Drink  extends Item{
 
     @Override
     public String toString() {
-        return String.format("Drink(size=%d, price=%.2f)", getType(), getPrice(getType()));
+        return String.format("Drink Size: %s $%.2f", SelectionHelper.getDrinkName(getType()), getPrice(getType()));
     }
 
     public String getName() {
