@@ -1,0 +1,11 @@
+=== RECEIPT === 
+Time: 20250528-174904
+---------------------
+Sandwich: 8" on Wrap (toasted)
+Ingredients:
+  Meats: Chicken
+  Cheeses: Swiss
+  Toppings: Lettuce
+  Sauces: Thousand Islands
+Sandwich Price: $10.50
+TOTAL: $10.50 

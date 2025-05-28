@@ -1,0 +1,21 @@
+=== RECEIPT === 
+Date: 05-28-2025    Time: 18:17:17
+---------------------
+Sandwich: 8" on Wrap (toasted)
+Ingredients:
+  Meats: Roast Beef (extra)
+  Cheeses: Cheddar (extra)
+  Toppings: Tomatoes
+  Sauces: Thousand Islands
+Sandwich Price: $12.10
+---------------------
+Sandwich: 4" on Rye (toasted)
+Ingredients:
+  Meats: Salami
+  Cheeses: American
+  Toppings: Onions
+  Sauces: Thousand Islands
+Sandwich Price: $7.25
+Drink Size: Medium $2.50
+Pringles — $1.50
+TOTAL: $23.35 

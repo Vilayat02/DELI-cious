@@ -37,7 +37,7 @@ public class UserInterface {
                     }
                     case 4 -> {
                         System.out.println("Final Order:\n" + order);
-                        System.out.print("1-Confirm  2-Cancel :");
+                        System.out.print("1-Confirm  2-Cancel : ");
                         int confirmOfCancel = sc.nextInt(); sc.nextLine();
                         switch (confirmOfCancel){
                             case 1 -> {
@@ -49,7 +49,6 @@ public class UserInterface {
                             case 2 -> {
                                 System.out.println("Order was cancelled.");
                                 run = false;
-                                exit = true;
                             }
                             default -> {
                                 ReceiptWriter.saveOrder(order);

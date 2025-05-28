@@ -8,19 +8,23 @@ import com.pluralsight.model.Sandwich;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class ReceiptWriter {
 
 
+
     public static void saveOrder(Order order) {
         String time = LocalDateTime.now().format(
                 DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
+        String date = LocalDate.now().format(DateTimeFormatter.ofPattern("MM-dd-yyyy"));
+        String timeNow = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
         String filename = "src/main/resources/ " + time + ".txt";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             writer.write("=== RECEIPT === \n");
-                    writer.write("Time: " + time + "\n");
+                    writer.write("Date: " + date + "   Time: " + timeNow + "\n");
 
             for (Sandwich s : order.getSandwiches()) {
                 writer.write(s.toString() + "\n");
