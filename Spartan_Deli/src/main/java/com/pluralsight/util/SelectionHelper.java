@@ -61,11 +61,29 @@ public class SelectionHelper {
         };
     }
 
+    public static String getDrinkName(int choice){
+        return switch (choice){
+            case 1 -> "Small";
+            case 2 -> "Medium";
+            case 3 -> "Large";
+            default -> "None";
+        };
+    }
+
+
     public static String getSidesName(int choice){
         return switch (choice){
             case 1 -> "Au Jus";
             case 2 -> "Sauce";
             default -> "None";
+        };
+    }
+
+    public static boolean yesNo(int choice){
+        return switch (choice){
+            case 1 -> true;
+            case 2 -> false;
+            default -> true;
         };
     }
 }

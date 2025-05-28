@@ -12,16 +12,16 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class ReceiptWriter {
-    private static final String RESOURCES_DIR = "resources/";
+
 
     public static void saveOrder(Order order) {
         String time = LocalDateTime.now().format(
                 DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
-        String filename = "resources/" + time + ".txt";
+        String filename = "src/main/resources/ " + time + ".txt";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
-            writer.write("=== RECEIPT === ");
-                    writer.write("Time: " + time + " ");
+            writer.write("=== RECEIPT === \n");
+                    writer.write("Time: " + time + "\n");
 
             for (Sandwich s : order.getSandwiches()) {
                 writer.write(s.toString() + " ");
