@@ -1,5 +1,7 @@
 package com.pluralsight.model;
 
+import com.pluralsight.service.PricingService;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +40,10 @@ public class Order {
             total += c.getPrice(c.getType());
         }
         return total;
+    }
+
+    public double getTotalPriceWithTax(){
+        return PricingService.taxPrice(getTotalPrice());
     }
 
     public List<Sandwich> getSandwiches() {

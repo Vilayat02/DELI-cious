@@ -1,0 +1,14 @@
+=== RECEIPT === 
+Date: 05-30-2025   Time: 00:33:49
+---------------------
+Sandwich: 4" on Wheat
+Ingredients:
+  Meats: Steak
+  Cheeses: Provolone
+  Toppings: Lettuce
+  Sauces: Mustard
+Sandwich Price: $7.25
+Total with Tax: $7.69
+Drink Size: Medium $2.50
+Pringles — $1.50
+TOTAL: $11.25 TOTAL with Tax: $11.93

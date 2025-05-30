@@ -36,7 +36,8 @@ public class ReceiptWriter {
                 writer.write(c.getName() + " — $" + String.format("%.2f", c.getPrice(c.getType())) + "\n");
             }
 
-            writer.write("TOTAL: $" + String.format("%.2f", order.getTotalPrice()) + " ");
+            writer.write("TOTAL: $" + String.format("%.2f", order.getTotalPrice()) + "\n");
+            writer.write("TOTAL with Tax: $" + String.format("%.2f", order.getTotalPriceWithTax()));
             writer.flush();
         } catch (IOException e) {
             System.err.println("Failed to save receipt: " + e.getMessage());

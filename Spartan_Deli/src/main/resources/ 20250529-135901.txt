@@ -1,0 +1,15 @@
+=== RECEIPT === 
+Date: 05-29-2025   Time: 13:59:01
+---------------------
+Sandwich: 8" on Wheat (toasted)
+Ingredients:
+  Meats: Steak (extra)
+  Cheeses: Cheddar (extra)
+  Toppings: Lettuce
+  Sauces: Thousand Islands
+Sandwich Price: $12.10
+Drink Size: Medium $2.50
+Drink Size: Large $3.00
+Lays — $1.50
+Lays — $1.50
+TOTAL: $20.60 

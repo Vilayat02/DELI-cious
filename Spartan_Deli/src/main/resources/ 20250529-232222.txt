@@ -1,0 +1,12 @@
+=== RECEIPT === 
+Date: 05-29-2025   Time: 23:22:22
+---------------------
+Sandwich: 8" on White (toasted)
+Ingredients:
+  Meats: Roast Beef (extra)
+  Cheeses: American (extra)
+  Toppings: Lettuce, Onions, Tomatoes, Jalapenos
+  Sauces: Mayo
+Sandwich Price: $12.10
+Drink Size: Large $3.00
+TOTAL: $15.10 

@@ -100,9 +100,13 @@ public class Sandwich {
         return desc;
     }
 
+    public String getTaxDescription(){
+        return String.format("Total with Tax: $%.2f", PricingService.taxPrice(getTotalPrice()));
+    }
+
     @Override
     public String toString() {
-        return getDescription();
+        return String.format(getDescription() + "\n" + getTaxDescription());
     }
 
 }

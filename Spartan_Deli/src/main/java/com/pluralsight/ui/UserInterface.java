@@ -26,7 +26,6 @@ public class UserInterface {
                         Sandwich sandwich = processGetSandwich();
                         order.addSandwich(sandwich);
                         }
-
                      case 2 -> {
                         Drink drink = processGetDrink();
                         order.addDrink(drink);
@@ -74,57 +73,79 @@ public class UserInterface {
         }
     }
 
-    public Sandwich processGetSandwich(){
+    public Sandwich processGetSandwich() {
         System.out.print("Which type of bread would you like: 1-White  2-Wheat  3-Rye  4-Wrap\n:");
-        int breadType = sc.nextInt(); sc.nextLine();
-        String breadName = SelectionHelper.getBreadName(breadType);
+        int breadType = sc.nextInt();
+        sc.nextLine();
         Bread bread = new Bread(breadType);
 
         System.out.print("Pick sandwich size (4, 8, 12 inch): ");
         int size = sc.nextInt(); sc.nextLine();
-        Sandwich sandwich = new Sandwich(size, bread);
 
+        if (size != 4 && size != 8 && size != 12){
+            System.out.println("Wrong option try again!");
+            return null;
+        }
+        Sandwich sandwich = new Sandwich(size, bread);
         System.out.println("Would you like Toasted? 1-Yes  2-No");
         int toasted = sc.nextInt();
         sandwich.setToasted(SelectionHelper.yesNo(toasted));
 
         System.out.print("Choose meat (0-None, 1-Steak, 2-Ham, 3-Salami, 4-Roast Beef, 5-Chicken, 6-Bacon): ");
-        int meatType = sc.nextInt(); sc.nextLine();
+        int meatType = sc.nextInt();
+        sc.nextLine();
         if (meatType != 0) {
             String meatName = SelectionHelper.getMeatsdName(meatType);
             System.out.print("Extra meat? 1-Yes  2-No: ");
-            int extra = sc.nextInt(); sc.nextLine();
+            int extra = sc.nextInt();
+            sc.nextLine();
             sandwich.addMeat(new Meat(meatType, SelectionHelper.yesNo(extra)));
             System.out.println("Added Meat: " + meatName + (SelectionHelper.yesNo(extra) ? " (extra)" : ""));
         }
 
         System.out.print("Choose cheese (0-None, 1-American, 2-Provolone, 3-Cheddar, 4-Swiss): ");
-        int cheeseType = sc.nextInt(); sc.nextLine();
+        int cheeseType = sc.nextInt();
+        sc.nextLine();
         if (cheeseType != 0) {
             String cheeseName = SelectionHelper.getCheeseName(cheeseType);
             System.out.print("Extra cheese? 1-Yes  2-No: ");
-            int extra = sc.nextInt(); sc.nextLine();
+            int extra = sc.nextInt();
+            sc.nextLine();
             sandwich.addCheese(new Cheese(cheeseType, SelectionHelper.yesNo(extra)));
             System.out.println("Added Cheese: " + cheeseName + (SelectionHelper.yesNo(extra) ? " (extra)" : ""));
         }
-
-        System.out.print("Choose topping (0-None, 1-Lettuce, 2-Peppers, 3-Onions, 4-Tomatoes, 5-Jalapenos, 6-Cucumbers, 7-Pickles, 9-Guacamole, 10-Mushrooms): ");
-        int toppingType = sc.nextInt(); sc.nextLine();
-        if (toppingType != 0) {
-            String toppingName = SelectionHelper.getRegularToppongsName(toppingType);
-            sandwich.addTopping(new Topping(toppingType));
-            System.out.println("Added Topping: " + toppingName);
+        //@TODO Don't let the horse run away
+        boolean topping = true;
+        while (topping) {
+            System.out.print("Choose topping (0-None, 1-Lettuce, 2-Peppers, 3-Onions, 4-Tomatoes, 5-Jalapenos, 6-Cucumbers, 7-Pickles, 9-Guacamole, 10-Mushrooms, ): ");
+            int toppingType = sc.nextInt();
+            sc.nextLine();
+                if (toppingType != 0) {
+                    String toppingName = SelectionHelper.getRegularToppongsName(toppingType);
+                    sandwich.addTopping(new Topping(toppingType));
+                    System.out.println("Added Topping: " + toppingName);
+                }
+                else{
+                    topping = false;
+            }
+        }
+        //@TODO Don't let the horse run away
+        boolean sauce = true;
+        while (sauce) {
+            System.out.print("Choose sauce (0-None, 1-Mayo, 2-Mustard, 3-Ketchup, 4-Ranch, 5-Thousand Islands, 6-Vinaigrette): ");
+            int sauceType = sc.nextInt(); sc.nextLine();
+            if (sauceType != 0) {
+                String sauceName = SelectionHelper.getSauceName(sauceType);
+                sandwich.addSauce(new Sauce(sauceType));
+                System.out.println("Added Sauce: " + sauceName);
+            }
+            else{
+                sauce = false;
+            }
+        }
+            return sandwich;
         }
 
-        System.out.print("Choose sauce (0-None, 1-Mayo, 2-Mustard, 3-Ketchup, 4-Ranch, 5-Thousand Islands, 6-Vinaigrette): ");
-        int sauceType = sc.nextInt(); sc.nextLine();
-        if (sauceType != 0) {
-            String sauceName = SelectionHelper.getSauceName(sauceType);
-            sandwich.addSauce(new Sauce(sauceType));
-            System.out.println("Added Sauce: " + sauceName);
-        }
-        return sandwich;
-    }
 
     private Drink processGetDrink() {
         System.out.print("Pick drink size: 1-Small, 2-Medium, 3-Large: ");

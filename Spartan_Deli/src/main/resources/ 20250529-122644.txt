@@ -1,0 +1,13 @@
+=== RECEIPT === 
+Date: 05-29-2025   Time: 12:26:44
+---------------------
+Sandwich: 12" on Wheat
+Ingredients:
+  Meats: Salami
+  Cheeses: Provolone
+  Toppings: Pickles
+  Sauces: Mayo
+Sandwich Price: $13.75
+Drink Size: Medium $2.50
+Pringles — $1.50
+TOTAL: $17.75 

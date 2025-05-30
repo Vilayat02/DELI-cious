@@ -1,6 +1,13 @@
 package com.pluralsight.service;
 
+import com.pluralsight.model.Sandwich;
+
 public class PricingService {
+
+    //TODO 6% State Taxes
+    public static double taxPrice(double total){
+        return (total * 0.06) + total;
+    }
 
     public static double basePrice(int sizeInInches) {
         return switch (sizeInInches) {
@@ -65,16 +72,5 @@ public class PricingService {
     public static double chipsBasePrice(int picked) {
         return (isChipsPicked(picked)) ? 1.50 : 0;
     }
-
-    public static double totalMeatPrice(int sizeInInches, boolean extra) {
-        return basePrice(sizeInInches)
-                + (extra ? meatExtraPrice(sizeInInches) : 0);
-    }
-
-    public static double totalCheesePrice(int sizeInInches, boolean extra) {
-        return basePrice(sizeInInches)
-                + (extra ? cheeseExtraPrice(sizeInInches) : 0);
-    }
-
 
 }
